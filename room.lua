@@ -45,26 +45,20 @@ elseif alignment == 'l' then
     turtle.turnLeft()
 end
 
-local x = 1
-local y = 0
-local z = 0
 local alternateRotation = false
 local alternateK = false
 
-for j = 0,depth-1,1
-do
-    for i = 0,width-1,1
-    do
+for j = 1, depth, 1 do
+    for i = 1, width, 1 do
         local verticalMovement = alternateK and Movement.down or Movement.up
-        for k = 0,height-1,1
-        do
+        for k = 1, height, 1 do
             -- Dig
             turtle.
             -- Move
             verticalMovement()
         end
         Movement:forward()
-        alternateK = ~alternateK
+        alternateK = not alternateK
     end
     local rotation = alternateRotation and turtle.turnLeft or turtle.turnRight
     rotation()
@@ -73,7 +67,7 @@ do
         Movement.forward()
     end
     rotation()
-    alternateRotation = ~alternateRotation
+    alternateRotation = not alternateRotation
 end
 
 -- Si on est à gauche complètement, on me mine pas à gauche
