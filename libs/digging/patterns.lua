@@ -6,7 +6,7 @@ Patterns = {}
 function Patterns:horizontalLine(length, digUp, digDown)
     digUp = digUp or false
     digDown = digDown or false
-    for i = 0,length-1,1
+    for i = 1,length,1
     do
         if digUp then turtle.digUp() end
         if digDown then turtle.digDown() end
@@ -23,7 +23,7 @@ function Patterns:digHorizontal(rotation)
 end
 
 function Patterns:belt()
-    for i = 0,3,1
+    for i = 1,4,1
     do
         turtle.dig()
         Movement:turn(1)
@@ -36,7 +36,7 @@ function Patterns:allSides()
     Patterns:belt()
 end
 
-function Patterns:custom(left, right, up, down, front, back)
+function Patterns:customAllSides(left, right, up, down, front, back)
     if up then
         turtle.digUp()
     end
