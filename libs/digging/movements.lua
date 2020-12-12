@@ -73,7 +73,7 @@ function Movement:vector(x, y, z)
     local yFn = y < 0 and Movement.forward or Movement.back
     local zFn = z < 0 and Movement.down or Movement.up
 
-    xFn(x)
-    yFn(y)
-    zFn(z)
+    xFn({}, x)
+    yFn({}, y)
+    zFn({}, z)
 end

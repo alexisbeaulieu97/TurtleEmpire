@@ -1,4 +1,5 @@
 require "movements"
+require "utils"
 
 Patterns = {}
 
@@ -52,12 +53,5 @@ function Patterns:custom(left, right, up, down, front, back)
             turtle.dig()
         end
         Movement:turn(1)
-    end
-end
-
-function Patterns:curry(func, ...)
-    return function(...)
-        -- todo find a way to unpack, or hardcode the num of arguments :c
-        return func(unpack(...))
     end
 end
