@@ -1,10 +1,25 @@
+-- This script should be initialized once
+-- as every movement is calculated from the initial rotation
+
 Movement = {}
 
-function Movement:turn(nTurns)
-    local f = nTurns > 0 and turtle.turnLeft or turtle.turnRight
-    local n = nTurns > 0 and nTurns or -nTurns
+local ROTATIONS = {
+    FORWARD = 1,
+    LEFT = 2,
+    BACKWARD = 3,
+    RIGHT = 4
+}
 
-    for i = 1, n, 1
+local rotation = ROTATIONS.FORWARD
+
+function Movement:turn(desiredRotation)
+    local d = desiredRotation % MAX_ROTATION
+    local r = rotation % MAX_ROTATION
+    local nTurns = (d - r) == 3 and -1 or d - r
+    local f = nTurns > 0 and turtle.turnLeft or turtle.turnRight
+    rotation = desiredRotation
+
+    for i = 1, math.abs(nTurns), 1
     do
         f()
     end

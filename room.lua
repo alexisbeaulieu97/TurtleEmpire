@@ -50,23 +50,11 @@ local alternateK = false
 
 for j = 1, depth, 1 do
     for i = 1, width, 1 do
-        local verticalMovement = alternateK and Movement.down or Movement.up
-        for k = 1, height, 1 do
-            -- Dig
-            turtle.
-            -- Move
-            verticalMovement()
-        end
-        Movement:forward()
+        local verticalMovement = alternateK and -height or height
+        -- move vertically
         alternateK = not alternateK
     end
     local rotation = alternateRotation and turtle.turnLeft or turtle.turnRight
-    rotation()
-    Movement.forward()
-    if x + 1 ~= width then
-        Movement.forward()
-    end
-    rotation()
     alternateRotation = not alternateRotation
 end
 
