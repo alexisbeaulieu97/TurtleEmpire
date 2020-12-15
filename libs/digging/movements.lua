@@ -37,18 +37,18 @@ end
 
 function Movement:forward(n)
     print("Moving forward...")
+    Movement:turn(ROTATIONS.FORWARD)
     for i = 1, n, 1 do
         Movement:move(turtle.detect, turtle.forward, turtle.dig)
     end
 end
 
-function Movement:back(n)
+function Movement:backward(n)
     print("Moving back...")
-    Movement:turn(2)
+    Movement:turn(ROTATIONS.BACKWARD)
     for i = 1, n, 1 do
         Movement:move(turtle.detect, turtle.forward, turtle.dig)
     end
-    Movement:turn(-2)
 end
 
 function Movement:up(n)
@@ -67,20 +67,18 @@ end
 
 function Movement:left(n)
     print("Moving left...")
-    Movement:turn(1)
+    Movement:turn(ROTATIONS.LEFT)
     for i = 1, n, 1 do
         Movement:move(turtle.detect, turtle.forward, turtle.dig)
     end
-    Movement:turn(-1)
 end
 
 function Movement:right(n)
     print("Moving right...")
-    Movement:turn(-1)
+    Movement:turn(ROTATIONS.RIGHT)
     for i = 1, n, 1 do
         Movement:move(turtle.detect, turtle.forward, turtle.dig)
     end
-    Movement:turn(1)
 end
 
 function Movement:vector(x, y, z)
