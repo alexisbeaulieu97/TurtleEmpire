@@ -10,6 +10,8 @@ local ROTATIONS = {
     RIGHT = 4
 }
 
+local MAX_ROTATION = 4
+
 local rotation = ROTATIONS.FORWARD
 
 function Movement:turn(desiredRotation)
@@ -83,10 +85,10 @@ end
 
 function Movement:vector(x, y, z)
     local xFn = x < 0 and Movement.left or Movement.right
-    local yFn = y < 0 and Movement.forward or Movement.back
+    local yFn = y < 0 and Movement.backward or Movement.forward
     local zFn = z < 0 and Movement.down or Movement.up
 
-    xFn({}, x)
-    yFn({}, y)
-    zFn({}, z)
+    xFn({}, math.abs(x))
+    yFn({}, math.abs(y))
+    zFn({}, math.abs(z))
 end
